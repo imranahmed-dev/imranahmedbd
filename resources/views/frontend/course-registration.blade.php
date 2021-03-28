@@ -58,9 +58,9 @@
                     <hr>
                     <div class="course-regi-form">
                         <h5 class="my-4 mt-5 course-regi-title">Course Registration</h5>
-                        <form action="" method="post">
+                        <form action="{{route('cr.store')}}" method="post">
                             @csrf
-
+                            <input type="hidden" name="course_id" value="{{$course->id}}">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -107,6 +107,7 @@
                                     <div class="form-group">
                                         <label for="">Full Address</label>
                                         <textarea name="address" class="form-control" placeholder="Full address"></textarea>
+                                        <div style='color:red; padding: 0 5px;'>{{($errors->has('address'))?($errors->first('address')):''}}</div>
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="Registration" class="btn btn-primary">

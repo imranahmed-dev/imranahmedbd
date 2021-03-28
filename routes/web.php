@@ -25,6 +25,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::post('/contact/store', 'ContactController@contactStore')->name('contact.store');
     Route::get('/user/login-register', 'FrontendController@loginRegister')->name('login.register');
     Route::post('/user/store', 'RegisterController@userStore')->name('user.store');
+    Route::post('/course/registration/store', 'RegisterController@crStore')->name('cr.store');
 });
 
 /*User dashboard*/

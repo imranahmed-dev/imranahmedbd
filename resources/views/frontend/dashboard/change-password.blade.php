@@ -2,22 +2,21 @@
 @section('title','Change Password')
 @section('dashboard')
 
-<div class="col-12 col-lg-9 mt-4 mt-lg-0">
-    <div class="card">
-        <div class="card-header">
-            <h5>Change Password</h5>
-        </div>
-        <div class="card-divider"></div>
-        <div class="card-body card-body--padding--2">
-            <div class="row no-gutters">
-                <div class="col-12 col-lg-7 col-xl-6">
+<div class="col-md-9">
+    <div class="ud-content">
+       <h5 class="ud-content-title">@if(Auth::user()->password != null) Change Password @else Set Password @endif</h5>
+        <div class="row">
+                <div class="col-md-6">
                     <form action="{{route('user.update.password')}}" method="post">
                         @csrf
+                        
+                        @if(Auth::user()->password != null)
                         <div class="form-group">
                             <label>Current Password</label>
                             <input name="current_password" type="password" class="form-control" placeholder="Current password">
                             <div style='color:red; padding: 0 5px;'>{{($errors->has('current_password'))?($errors->first('current_password')):''}}</div>
                         </div>
+                        @endif
                         <div class="form-group">
                             <label>New Password</label>
                             <input name="new_password" type="password" class="form-control" placeholder="New password">
@@ -28,11 +27,10 @@
                             <input name="password_confirmation" type="password" class="form-control" placeholder="Reenter new password">
                             <div style='color:red; padding: 0 5px;'>{{($errors->has('password_confirmation'))?($errors->first('password_confirmation')):''}}</div>
                         </div>
-                        <div class="form-group mb-0"><button type="submit" class="btn btn-primary mt-3">Change</button></div>
+                        <div class="form-group mb-0"><button type="submit" class="btn btn-primary">Change</button></div>
                     </form>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 @endsection

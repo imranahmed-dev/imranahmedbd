@@ -13,7 +13,7 @@ $url = Request::path();
     Graphics designer bangaldesh, seo service provider bangladesh ">
     <meta name="keywords" content="imran ahmed,01755430927, imran, software engineer imran ahmed, web developer imran ahmed, software engineer in bangladesh,web developer in bangladesh, top ten software engineer in bangaldesh,top ten web developer in bangladesh,
     who is imran ahmed, imran ahmed address, imran ahmed contact, how to contact with imran ahmed, web designer imran ahmed, web designer in bangladesh ">
-   <!-- <link rel="canonical" href="https://www.imranahmedbd.com" />-->
+    <!-- <link rel="canonical" href="https://www.imranahmedbd.com" />-->
 
     <!-- favicon -->
     <link rel="shortcut icon" href="{{asset('frontend')}}/images/favicon.png">
@@ -133,7 +133,11 @@ $url = Request::path();
                 </ul>
 
                 <ul class="list-unstyled mb-0 mt-2 mt-sm-0 light-social-icon log-reg-btn">
+                    @if(Auth::check() && Auth::user()->role == 2)
+                    <li class="list-inline-item"><a href="{{route('user.dashboard')}}"><i class="mdi mdi-user"></i> {{Auth::user()->name}}</a></li>
+                    @else
                     <li class="list-inline-item"><a href="{{route('login.register')}}"><i class="mdi mdi-user"></i> Login/Register</a></li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -196,10 +200,14 @@ $url = Request::path();
         <i class="mdi mdi-chevron-up d-block"> </i>
     </a>
     <!-- Back to top -->
-
+    
     <!-- javascript -->
-    <script src="{{asset('frontend')}}/js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{asset('frontend')}}/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <!-- SLIDER -->
     <script src="{{asset('frontend')}}/js/tiny-slider.js"></script>
     <script src="{{asset('frontend')}}/js/tiny-slider-init.js"></script>
