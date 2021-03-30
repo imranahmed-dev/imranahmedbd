@@ -54,12 +54,15 @@
             </div>
         </div>
     </div>
+    @php
+        $courses = App\Models\CourseRegister::where('user_id', Auth::user()->id)->latest()->get()->take(3);
+    @endphp
     <div class="row">
         <div class="col">
             <div class="ud-content-2">
                 <h5 class="mb-3">Recent Course</h5>
                 <div class="table-responsive">
-                    <table class="table borderless">
+                    <table class="table borderless text-nowrap">
                         <thead>
                             <tr>
                                 <th>SL</th>
@@ -71,14 +74,36 @@
                             </tr>
                         </thead>
                         <tbody>
+                          @if($courses->count() == null)
                             <tr>
-                                <td>1</td>
-                                <td>Professional Web Design Full Course</td>
-                                <td>2 month</td>
-                                <td>3500tk</td>
-                                <td><span class="custom-badge">Pending</span></td>
-                                <td><a href="#" class="btn btn-primary btn-sm">View</a></td>
+                                <td class="my-4 text-center" colspan="6">No Course Available!</td>
                             </tr>
+                            @endif
+                           @foreach($courses as $course)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$course->course->title}}</td>
+                                <td>{{$course->course->duration}}</td>
+                                <td>{{$course->course->fee}}</td>
+                                <td><span class="custom-badge">
+                                @if($course->status == 0)
+                                Pending
+                                @elseif($course->status == 1)
+                                Accept
+                                @elseif($course->status == 2)
+                                Running
+                                @elseif($course->status == 3)
+                                Complete
+                                @endif
+                                </span></td>
+                                <td>
+                        <a href="{{route('course.details',$course->course->slug)}}" class="btn btn-primary btn-sm">View</a>
+                        @if($course->status == 0)
+                        <a id="delete" href="{{route('user.course.delete',$course->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                        @endif
+                    </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

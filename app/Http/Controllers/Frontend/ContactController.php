@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Validator;
+use Mail;
 
 class ContactController extends Controller
 {
@@ -31,8 +32,22 @@ class ContactController extends Controller
         $contact->email                 = $request->email;
         $contact->subject               = $request->subject;
         $contact->message               = $request->message;
-
         $contact->save();
+        
+        $data = array(
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'msg' => $request->message,
+        );
+        
+        Mail::send('frontend.email.contact',$data, function($message) use($data) {
+            $message->from('imranahmed.developer@gmail.com', 'Developer Imran');
+            $message->to($data['email']);
+            $message->subject('Thanks for contact me!');
+        });
+        
+        
 
         $notification = array(
             'message' => 'Successfully Send Your Message!',

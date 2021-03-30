@@ -90,9 +90,7 @@ $url = Request::path();
                         <a class="nav-link @if($url == '/') active @endif" href="{{url('/')}}">Home</a>
                     </li>
                     <!--end nav item-->
-                    <li class="nav-item">
-                        <a class="nav-link @if($url == 'about') active @endif" href="{{url('about')}}">About</a>
-                    </li>
+                    
                     <!--end nav item-->
                     <li class="nav-item">
                         <a class="nav-link @if($url == 'portfolio') active @endif" href="{{route('portfolio')}}">Portfolio</a>
@@ -103,7 +101,7 @@ $url = Request::path();
                     </li>
                     <!--end nav item-->
                     <li class="nav-item">
-                        <a class="nav-link @if($url == 'blogs') active @endif" href="{{route('blogs')}}">Blog</a>
+                        <a class="nav-link @if($url == 'blogs') active @endif" href="javascript:;">Blog</a>
                     </li>
                     <!--end nav item-->
                     <li class="nav-item">
@@ -253,6 +251,7 @@ $url = Request::path();
 
     <!-- Sweetalert -->
     <script src="{{asset('defaults/sweetalert/sweetalert2@9.js')}}"></script>
+    <script src="{{asset('defaults/sweetalert/sweetalertjs.js')}}"></script>
     <!-- Toastr -->
     <script src="{{asset('defaults/toastr/toastr.min.js')}}"></script>
 

@@ -38,6 +38,10 @@ Route::group(['prefix' => '/user', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('/update/profile', 'DashboardController@updateProfile')->name('user.update.profile');
     Route::get('/change/password', 'DashboardController@changePassword')->name('user.change.password');
     Route::post('/update/password', 'DashboardController@updatePassword')->name('user.update.password');
+    
+    Route::get('/my/course', 'DashboardController@myCourse')->name('user.mycourse');
+    Route::get('/complete/course', 'DashboardController@completeCourse')->name('user.complete.course');
+    Route::get('/course/delete/{id}', 'DashboardController@courseDelete')->name('user.course.delete');
 });
 
 

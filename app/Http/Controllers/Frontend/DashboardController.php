@@ -6,10 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
-use App\Models\Order;
-use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Hash;
 use Validator;
+use App\Models\CourseRegister;
 
 class DashboardController extends Controller
 {
@@ -128,24 +127,25 @@ class DashboardController extends Controller
         }
     }
 
-    public function myOrders(){
-        $data['orders'] = Order::where('user_id', Auth::user()->id)->where('status',0)->latest()->paginate(8);
-        return view('frontend.dashboard.orders.my-orders',$data);
+    public function myCourse(){
+        $data['courses'] = CourseRegister::where('user_id', Auth::user()->id)->latest()->paginate(5);
+        return view('frontend.dashboard.course.my-course',$data);
     }
-     public function orderHistory(){
-        $data['orders'] = Order::where('user_id', Auth::user()->id)->latest()->paginate(8);
-        return view('frontend.dashboard.orders.order-history',$data);
+    public function completeCourse(){
+        $data['courses'] = CourseRegister::where('user_id', Auth::user()->id)->where('status',3)->latest()->paginate(5);
+        return view('frontend.dashboard.course.complete-course',$data);
     }
-    public function returnOrder(){
-        $data['orders'] = Order::where('user_id', Auth::user()->id)->where('status',3)->latest()->paginate(8);
-        return view('frontend.dashboard.orders.return-order',$data);
+    public function courseView($id){
+     $data['course'] = CourseRegister::where('id',$id)->where('user_id',Auth::user()->id)->first();
+        return view('frontend.dashboard.course.course-view',$data);
     }
-    public function successDelivery(){
-        $data['orders'] = Order::where('user_id', Auth::user()->id)->where('status',3)->latest()->paginate(8);
-        return view('frontend.dashboard.orders.success-delivery',$data);
-    }
-    public function orderDetails($id){
-     $data['order'] = Order::where('id',$id)->where('user_id',Auth::user()->id)->first();
-        return view('frontend.dashboard.orders.order-details',$data);
+    
+    public function courseDelete($id){
+        CourseRegister::find($id)->delete();
+            $notification = array(
+                'message' => 'Successfully Course Deleted!.',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
     }
 }

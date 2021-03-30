@@ -27,8 +27,7 @@
                         <thead>
                             <tr>
                                 <th>SL</th>
-                                <th class="text-nowrap">Category Name (En)</th>
-                                <th class="text-nowrap">Category Name (Bn)</th>
+                                <th class="text-nowrap">Category Name</th>
                                 <th class="text-nowrap">Action</th>
                             </tr>
                         </thead>
@@ -36,8 +35,7 @@
                             @foreach($data as $row)
                             <tr class="odd gradeX">
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$row->category_name_en}}</td>
-                                <td>{{$row->category_name_bn}}</td>
+                                <td>{{$row->category_name}}</td>
                                 <td>
                                     <a href="{{route('blogcategory.edit',$row->id)}}" class="btn btn-info btn-xs"><i class="fa fa-edit"></i> Edit</a>
                                     <a id="delete" href="{{route('blogcategory.destroy',$row->id)}}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
@@ -68,14 +66,9 @@
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="">Category Name (En)</label>
-                        <input type="text" name="category_name_en" placeholder="Category name (en)" class="form-control">
-                        <div style='color:red; padding: 0 5px;'>{{($errors->has('category_name_en'))?($errors->first('category_name_en')):''}}</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Category Name (Bn)</label>
-                        <input type="text" name="category_name_bn" placeholder="Category name (bn)" class="form-control">
-                        <div style='color:red; padding: 0 5px;'>{{($errors->has('category_name_bn'))?($errors->first('category_name_bn')):''}}</div>
+                        <label for="">Category Name</label>
+                        <input type="text" name="category_name" placeholder="Category name" class="form-control">
+                        <div style='color:red; padding: 0 5px;'>{{($errors->has('category_name'))?($errors->first('category_name')):''}}</div>
                     </div>
                 </div>
                 <div class="modal-footer">

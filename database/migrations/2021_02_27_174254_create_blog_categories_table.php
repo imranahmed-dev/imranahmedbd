@@ -15,10 +15,8 @@ class CreateBlogCategoriesTable extends Migration
     {
         Schema::create('blog_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('category_name_en')->unique();
-            $table->string('category_name_bn')->unique();
-            $table->string('slug_en')->unique();
-            $table->string('slug_bn')->unique();
+            $table->string('category_name')->unique();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

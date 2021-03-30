@@ -131,9 +131,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-md-6">
                 <div class="course-comment">
-                    <h5 class="my-5 text-primary">Comments:</h5>
+                    <h5 class="my-5 mb-3 text-primary" style="border-top:1px solid #ddd; border-bottom:1px solid #ddd;padding:10px 0;">Comments:</h5>
                     <div class="fb-comments" data-href="{{Request::url()}}" data-width="" data-numposts="5"></div>
                 </div>
             </div>

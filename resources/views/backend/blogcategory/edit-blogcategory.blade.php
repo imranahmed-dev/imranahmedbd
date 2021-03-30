@@ -30,14 +30,9 @@
                             <form action="{{route('blogcategory.update',$data->id)}}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="">Category Name (En)</label>
-                                    <input type="text" name="category_name_en" value="{{$data->category_name_en}}" placeholder="Category name (en)" class="form-control">
-                                    <div style='color:red; padding: 0 5px;'>{{($errors->has('category_name_en'))?($errors->first('category_name_en')):''}}</div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Category Name (Bn)</label>
-                                    <input type="text" name="category_name_bn" value="{{$data->category_name_bn}}" placeholder="Category name (bn)" class="form-control">
-                                    <div style='color:red; padding: 0 5px;'>{{($errors->has('category_name_bn'))?($errors->first('category_name_bn')):''}}</div>
+                                    <label for="">Category Name</label>
+                                    <input type="text" name="category_name" value="{{$data->category_name}}" placeholder="Category name (en)" class="form-control">
+                                    <div style='color:red; padding: 0 5px;'>{{($errors->has('category_name'))?($errors->first('category_name')):''}}</div>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">Update</button>

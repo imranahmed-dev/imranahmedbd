@@ -8,6 +8,8 @@ use App\User;
 use Auth;
 use Validator;
 use App\Models\CourseRegister;
+use App\Models\Course;
+use Mail;
 
 class RegisterController extends Controller
 {
@@ -28,12 +30,21 @@ class RegisterController extends Controller
         $data->mobile = $request->mobile;
         $data->password = bcrypt($request->reg_password);
         $data->save();
-
-        $notification = array(
-            'message' => 'Registration Successfully!',
-            'alert-type' => 'success'
-        );
+        
         Auth::login($data, true);
+        
+        $info = array(
+            'email' => $request->reg_email,
+        );
+
+        Mail::send('frontend.email.registration',$info, function($message) use($info) {
+            $message->from('imranahmed.developer@gmail.com', 'Developer Imran');
+            $message->to($info['email']);
+            $message->subject('Thank you so much for registering on my website!');
+        });
+        
+        
+
         $notification = array(
             'message' => 'Registration successfully',
             'alert-type' => 'success'
@@ -58,6 +69,8 @@ class RegisterController extends Controller
             );
             return redirect()->back()->withErrors($validator)->withInput()->with($notification);
         }
+        
+        $course = Course::where('id', $request->course_id)->first();
 
         $data = new CourseRegister;
         $data->user_id = Auth::user()->id;
@@ -69,6 +82,27 @@ class RegisterController extends Controller
         $data->semester_year = $request->semester_year;
         $data->address = $request->address;
         $data->save();
+        
+        
+        $data = array(
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile' => $request->mobile_number,
+            'scl_clg' => $request->school_college,
+            'sem_yr' => $request->semester_year,
+            'addr' => $request->address,
+            
+            'crs_name' => $course->title,
+            'duration' => $course->duration,
+            'fee' => $course->fee,
+        );
+        
+        Mail::send('frontend.email.course-register',$data, function($message) use($data) {
+            $message->from('imranahmed.developer@gmail.com', 'Developer Imran');
+            $message->to(Auth::user()->email);
+            $message->subject('Thanks for registration my course!');
+        });
+        
 
         $notification = array(
             'message' => 'Registration successfully',

@@ -31,27 +31,18 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="">Title (En)</label>
-                                            <input type="text" class="form-control" placeholder="Title (en)" name="title_en" value="{{$blog->title_en}}">
-                                            <div style='color:red; padding: 0 5px;'>{{($errors->has('title_en'))?($errors->first('title_en')):''}}</div>
+                                            <label for="">Title</label>
+                                            <input type="text" class="form-control" placeholder="Title" name="title" value="{{$blog->title}}">
+                                            <div style='color:red; padding: 0 5px;'>{{($errors->has('title'))?($errors->first('title')):''}}</div>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="">Title (Bn)</label>
-                                            <input type="text" class="form-control" placeholder="Title (bn)" name="title_bn" value="{{$blog->title_bn}}">
-                                            <div style='color:red; padding: 0 5px;'>{{($errors->has('title_bn'))?($errors->first('title_bn')):''}}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
                                         <div class="form-group">
                                             <label for="">Category</label>
                                             <select class="form-control myselect2" name="category_id" id="category_id">
                                                 <option value="">Select Category</option>
                                                 @foreach($categories as $category)
-                                                <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : '' }} @if($blog->category_id == $category->id) selected @endif >{{$category->category_name_en}} - {{$category->category_name_bn}}</option>
+                                                <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : '' }} @if($blog->category_id == $category->id) selected @endif >{{$category->category_name}}</option>
                                                 @endforeach
                                             </select>
                                             <div style='color:red; padding: 0 5px;'>{{($errors->has('category_id'))?($errors->first('category_id')):''}}</div>
@@ -61,18 +52,9 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="">Description (En)</label>
-                                            <textarea class="summernote" name="description_en">{{$blog->description_en}}</textarea>
-                                            <div style='color:red; padding: 0 5px;'>{{($errors->has('description_en'))?($errors->first('description_en')):''}}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="">Description (Bn)</label>
-                                            <textarea class="summernote" name="description_bn">{{$blog->description_bn}}</textarea>
-                                            <div style='color:red; padding: 0 5px;'>{{($errors->has('description_bn'))?($errors->first('description_bn')):''}}</div>
+                                            <label for="">Description</label>
+                                            <textarea class="summernote" name="description">{{$blog->description}}</textarea>
+                                            <div style='color:red; padding: 0 5px;'>{{($errors->has('description'))?($errors->first('description')):''}}</div>
                                         </div>
                                     </div>
                                 </div>

@@ -9,6 +9,7 @@ use Auth;
 use Validator;
 use App\Models\Portfolio;
 use App\Models\Course;
+use App\Models\CourseRegister;
 
 
 class FrontendController extends Controller
@@ -49,8 +50,21 @@ class FrontendController extends Controller
         
         if (Auth::check() && Auth::user()->role == 2) {
             
-            $data['course'] = Course::where('slug',$slug)->first();
-            return view('frontend.course-registration',$data);
+            $course_id = Course::where('slug',$slug)->first()->id;
+            
+            $check = CourseRegister::where('user_id', Auth::user()->id)->where('course_id',$course_id)->first();
+            
+            if($check){
+                $notification = array(
+                'message' => 'You have already registered for this course. Please check your course list!',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+            }else{
+            
+                $data['course'] = Course::where('slug',$slug)->first();
+                return view('frontend.course-registration',$data);
+            }
             
         } else {
             
@@ -64,7 +78,12 @@ class FrontendController extends Controller
     }
     
     public function loginRegister(){
+        if(Auth::check() && Auth::user()->role == 2){
+            return redirect()->route('user.dashboard');
+        }else{
+            
         return view('frontend.login-register');
+        }
     }
 
 

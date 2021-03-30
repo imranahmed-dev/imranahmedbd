@@ -40,8 +40,7 @@ class BlogCategoryController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'category_name_en' => 'required|unique:blog_categories,category_name_en',
-            'category_name_bn' => 'required|unique:blog_categories,category_name_bn',
+            'category_name' => 'required|unique:blog_categories,category_name',
         ]);
         if ($validator->fails()) {
             $notification = array(
@@ -52,10 +51,8 @@ class BlogCategoryController extends Controller
         }
 
         $data = new BlogCategory;
-        $data->category_name_en = $request->category_name_en;
-        $data->category_name_bn = $request->category_name_bn;
-        $data->slug_en = Str::slug($request->category_name_en);
-        $data->slug_bn = Str::slug($request->category_name_bn);
+        $data->category_name = $request->category_name;
+        $data->slug = Str::slug($request->category_name);
         $data->save();
         
         $notification = array(
@@ -99,8 +96,7 @@ class BlogCategoryController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'category_name_en' => 'required|unique:blog_categories,category_name_en,'.$id,
-            'category_name_bn' => 'required|unique:blog_categories,category_name_bn,'.$id,
+            'category_name' => 'required|unique:blog_categories,category_name,'.$id,
         ]);
         if ($validator->fails()) {
             $notification = array(
@@ -111,10 +107,8 @@ class BlogCategoryController extends Controller
         }
 
         $data = BlogCategory::find($id);
-        $data->category_name_en = $request->category_name_en;
-        $data->category_name_bn = $request->category_name_bn;
-        $data->slug_en = Str::slug($request->category_name_en);
-        $data->slug_bn = Str::slug($request->category_name_bn);
+        $data->category_name = $request->category_name;
+        $data->slug = Str::slug($request->category_name);
         $data->save();
         
         $notification = array(

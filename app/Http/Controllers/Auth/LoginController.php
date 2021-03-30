@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use App\User;
 use Socialite;
+use Mail;
 class LoginController extends Controller
 {
     /*
@@ -73,6 +74,17 @@ class LoginController extends Controller
             $user->save();
             
             Auth::login($user, true);
+            
+            $info = array(
+            'email' => $userSocial->getEmail()
+             );
+
+            Mail::send('frontend.email.registration',$info, function($message) use($info) {
+                $message->from('imranahmed.developer@gmail.com', 'Developer Imran');
+                $message->to($info['email']);
+                $message->subject('Thank you so much for registering on my website!');
+            });
+        
             return redirect('user/dashboard');
         }
     }

@@ -43,11 +43,9 @@ class BlogController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'title_en' => 'required|unique:blogs,title_en',
-            'title_bn' => 'required|unique:blogs,title_bn',
+            'title' => 'required|unique:blogs,title',
             'category_id' => 'required',
-            'description_en' => 'required',
-            'description_bn' => 'required',
+            'description' => 'required',
             'image' => 'mimes:jpg,jpeg,png',
         ]);
         if ($validator->fails()) {
@@ -59,14 +57,11 @@ class BlogController extends Controller
         }
 
         $blog = new Blog;
-        $blog->title_en                   = $request->title_en;
-        $blog->title_bn                   = $request->title_bn;
-        $blog->category_id                = $request->category_id;
-        $blog->slug_en                    = Str::slug($request->title_en);
-        $blog->slug_bn                    = Str::slug($request->title_bn);
-        $blog->description_en             = $request->description_en;
-        $blog->description_bn             = $request->description_bn;
-        $blog->status                     = $request->status;
+        $blog->title                   = $request->title;
+        $blog->category_id             = $request->category_id;
+        $blog->slug                    = Str::slug($request->title);
+        $blog->description             = $request->description;
+        $blog->status                  = $request->status;
 
         // Image
         $image = $request->file('image');
@@ -122,11 +117,9 @@ class BlogController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'title_en' => 'required|unique:blogs,title_en,'.$id,
-            'title_bn' => 'required|unique:blogs,title_bn,'.$id,
+            'title' => 'required|unique:blogs,title',
             'category_id' => 'required',
-            'description_en' => 'required',
-            'description_bn' => 'required',
+            'description' => 'required',
             'image' => 'mimes:jpg,jpeg,png',
         ]);
         if ($validator->fails()) {
@@ -138,14 +131,11 @@ class BlogController extends Controller
         }
 
         $blog = Blog::find($id);
-        $blog->title_en                   = $request->title_en;
-        $blog->title_bn                   = $request->title_bn;
-        $blog->category_id                = $request->category_id;
-        $blog->slug_en                    = Str::slug($request->title_en);
-        $blog->slug_bn                    = Str::slug($request->title_bn);
-        $blog->description_en             = $request->description_en;
-        $blog->description_bn             = $request->description_bn;
-        $blog->status                     = $request->status;
+        $blog->title                   = $request->title;
+        $blog->category_id             = $request->category_id;
+        $blog->slug                    = Str::slug($request->title);
+        $blog->description             = $request->description;
+        $blog->status                  = $request->status;
 
         // Image
         $image = $request->file('image');

@@ -28,10 +28,8 @@
                             <tr>
                                 <th>SL</th>
                                 <th class="text-nowrap">Blog Image</th>
-                                <th class="text-nowrap">Title (En)</th>
-                                <th class="text-nowrap">Title (Bn)</th>
-                                <th class="text-nowrap">Category (En)</th>
-                                <th class="text-nowrap">Category (Bn)</th>
+                                <th class="text-nowrap">Title</th>
+                                <th class="text-nowrap">Category</th>
                                 <th class="text-nowrap">Status</th>
                                 <th class="text-nowrap">Action</th>
                             </tr>
@@ -41,10 +39,8 @@
                             <tr class="odd gradeX">
                                 <td>{{$loop->iteration}}</td>
                                 <td><img width="50" src="{{asset($blog->image)}}" alt=""></td>
-                                <td>{{$blog->title_en}}</td>
-                                <td>{{$blog->title_bn}}</td>
-                                <td>{{$blog->category->category_name_en}}</td>
-                                <td>{{$blog->category->category_name_bn}}</td>
+                                <td>{{$blog->title}}</td>
+                                <td>{{$blog->category->category_name}}</td>
                                 <td>
                                     @if($blog->status == 1)
                                     <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#blog_status_{{$blog->id}}"><i class="fa fa-check"></i> Active</a>
@@ -60,7 +56,7 @@
                                 </td>
                             </tr>
 
-                            <!--Doctor Status -->
+                            <!--Category Status -->
                             <div class="modal fade" id="blog_status_{{$blog->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">

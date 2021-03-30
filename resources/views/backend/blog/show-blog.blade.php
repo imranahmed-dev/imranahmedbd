@@ -25,34 +25,21 @@
                 <div class="panel-body">
                     <table class="table table-striped table-bordered table-td-valign-middle">
                         <tr>
-                            <th width="20%">Title (En)</th>
-                            <td>{{$blog->title_en}}</td>
-                        </tr>
-                        <tr>
-                            <th width="20%">Title (Bn)</th>
-                            <td>{{$blog->title_bn}}</td>
+                            <th width="20%">Title</th>
+                            <td>{{$blog->title}}</td>
                         </tr>
                         <tr>
                             <th>Blog Image</th>
                             <td><img width="50" src="@if(!empty($blog->image)) {{asset( $blog->image ) }} @else {{asset('defaults/noimage/no_img.jpg')}} @endif" alt=""></td>
                         </tr>
                         <tr>
-                            <th>Category (En)</th>
-                            <td>{{$blog->category->category_name_en}}</td>
+                            <th>Category</th>
+                            <td>{{$blog->category->category_name}}</td>
                         </tr>
 
                         <tr>
-                            <th>Category (Bn)</th>
-                            <td>{{$blog->category->category_name_bn}}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Description (En)</th>
-                            <td>{!!$blog->description_en!!}</td>
-                        </tr>
-                        <tr>
-                            <th>Description (Bn)</th>
-                            <td>{!!$blog->description_bn!!}</td>
+                            <th>Description</th>
+                            <td>{!!$blog->description!!}</td>
                         </tr>
                         <tr>
                             <th>Status</th>
