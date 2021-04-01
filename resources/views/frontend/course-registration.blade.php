@@ -193,7 +193,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 text-center">
                         <h4 class="text-light title-dark">I Am Available For Web Application Development Projects.</h4>
-                        <p class="text-white-50 mx-auto mt-4 para-desc">Obviously I'm a Web Designer. Experienced with all stages of the development cycle for dynamic web projects.</p>
+                        <p class="text-white-50 mx-auto mt-4 para-desc">Obviously I'm a Full Stack Web Developer. Experienced with all stages of the development cycle for dynamic web projects.</p>
                         <div class="mt-4">
                             <a href="{{route('contact')}}" class="btn btn-primary mouse-down">Hire me</a>
                         </div>

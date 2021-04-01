@@ -90,6 +90,13 @@
 .service-wrapper {
     background: #fff;
 }
+.blog-post img{
+    height: 245px;
+    width: 100%;
+}
+.blog-post{
+    background: #fff;
+}
 .form-group .form-control {
 
      border: 1px solid #ddd;
@@ -422,5 +429,10 @@
 .btn-facebook {
     background: #3b5998;
     border-color: #3b5998;
+    color: #fff !important;
+}
+.btn-github {
+    background: #444;
+    border-color: #fff;
     color: #fff !important;
 }

@@ -73,201 +73,16 @@
 <!--end section-->
 <!-- Projects End -->
 
-<!-- Testimonial Start -->
-<section class="cta-full">
-    <div class="container-fluid">
-        <div class="row position-relative">
-            <div class="col-lg-12">
-                <div class="cta-full-img-box pb-2">
-                    <div class="row justify-content-center">
-                        <div class="col-12 text-center">
-                            <div class="section-title">
-                                <div class="titles">
-                                    <h4 class="title title-line text-uppercase mb-4 pb-4">Clients say</h4>
-                                    <span></span>
-                                </div>
-                                <p class="text-muted mx-auto para-desc mb-0">Obviously I'm a Web Designer. Experienced with all stages of the development cycle for dynamic web projects.</p>
-                            </div>
-                        </div>
-                        <!--end col-->
-                    </div>
-                    <!--end row-->
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="client-review-slider">
-                                <div class="tiny-slide">
-                                    <div class="client-review rounded shadow m-2">
-                                        <div class="review-star">
-
-                                            <div class="review-base">
-                                                <h6 class="title">" Design Quality "</h6>
-                                            </div>
-                                        </div>
-                                        <!--end review star-->
-
-                                        <p class="text-muted review-para font-italic mt-3 mb-3">There are many variations of passages of Lorem Ipsum available, by injected humour, or randomised words which don't look even slightly believable. </p>
-                                        <div class="reviewer d-flex align-items-center">
-                                            <img src="{{asset('frontend')}}/images/client/01.jpg" class="img-fluid rounded-circle avatar avatar-small me-3" alt="">
-                                            <div class="content">
-                                                <h5 class="name mb-0">Erich Bissonette</h5>
-                                                <small class="designation text-muted">Oppo</small>
-                                            </div>
-                                        </div>
-                                        <!--end reviewer-->
-                                    </div>
-                                    <!--end client review-->
-                                </div>
-                                <!--End Client-->
-
-                                <!--Start Client-->
-                                <div class="tiny-slide">
-                                    <div class="client-review rounded shadow m-2">
-                                        <div class="review-star">
-
-                                            <div class="review-base">
-                                                <h6 class="title">" Code Quality "</h6>
-                                            </div>
-                                        </div>
-                                        <!--end review star-->
-
-                                        <p class="text-muted review-para font-italic mt-3 mb-3">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                                        <div class="reviewer d-flex align-items-center">
-                                            <img src="{{asset('frontend')}}/images/client/02.jpg" class="img-fluid rounded-circle avatar avatar-small me-3" alt="">
-                                            <div class="content">
-                                                <h5 class="name mb-0">Tina Meyer</h5>
-                                                <small class="designation text-muted">Vivo</small>
-                                            </div>
-                                        </div>
-                                        <!--end reviewer-->
-                                    </div>
-                                    <!--end client review-->
-                                </div>
-                                <!--End Client-->
-
-                                <!--Start Client-->
-                                <div class="tiny-slide">
-                                    <div class="client-review rounded shadow m-2">
-                                        <div class="review-star">
-
-                                            <div class="review-base">
-                                                <h6 class="title">" Feature Availability "</h6>
-                                            </div>
-                                        </div>
-                                        <!--end review star-->
-
-                                        <p class="text-muted review-para font-italic mt-3 mb-3">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-                                        <div class="reviewer d-flex align-items-center">
-                                            <img src="{{asset('frontend')}}/images/client/03.jpg" class="img-fluid rounded-circle avatar avatar-small me-3" alt="">
-                                            <div class="content">
-                                                <h5 class="name mb-0">Sharon Murdock</h5>
-                                                <small class="designation text-muted">Apple</small>
-                                            </div>
-                                        </div>
-                                        <!--end reviewer-->
-                                    </div>
-                                    <!--end client review-->
-                                </div>
-                                <!--End Client-->
-
-                                <!--Start Client-->
-                                <div class="tiny-slide">
-                                    <div class="client-review rounded shadow m-2">
-                                        <div class="review-star">
-
-                                            <div class="review-base">
-                                                <h6 class="title">" Customizability "</h6>
-                                            </div>
-                                        </div>
-                                        <!--end review star-->
-
-                                        <p class="text-muted review-para font-italic mt-3 mb-3">All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
-                                        <div class="reviewer d-flex align-items-center">
-                                            <img src="{{asset('frontend')}}/images/client/04.jpg" class="img-fluid rounded-circle avatar avatar-small me-3" alt="">
-                                            <div class="content">
-                                                <h5 class="name mb-0">Jesse Hunt</h5>
-                                                <small class="designation text-muted">Samsung</small>
-                                            </div>
-                                        </div>
-                                        <!--end reviewer-->
-                                    </div>
-                                    <!--end client review-->
-                                </div>
-                                <!--End Client-->
-
-                                <!--Start Client-->
-                                <div class="tiny-slide">
-                                    <div class="client-review rounded shadow m-2">
-                                        <div class="review-star">
-
-                                            <div class="review-base">
-                                                <h6 class="title">" Flexibility "</h6>
-                                            </div>
-                                        </div>
-                                        <!--end review star-->
-
-                                        <p class="text-muted review-para font-italic mt-3 mb-3">There are many variations of passages of Lorem Ipsum available, by injected humour, or randomised words which don't look even slightly believable. </p>
-                                        <div class="reviewer d-flex align-items-center">
-                                            <img src="{{asset('frontend')}}/images/client/05.jpg" class="img-fluid rounded-circle avatar avatar-small me-3" alt="">
-                                            <div class="content">
-                                                <h5 class="name mb-0">Andrea Toy</h5>
-                                                <small class="designation text-muted">Nokia</small>
-                                            </div>
-                                        </div>
-                                        <!--end reviewer-->
-                                    </div>
-                                    <!--end client review-->
-                                </div>
-                                <!--End Client-->
-
-                                <!--Start Client-->
-                                <div class="tiny-slide">
-                                    <div class="client-review rounded shadow m-2">
-                                        <div class="review-star">
-
-                                            <div class="review-base">
-                                                <h6 class="title">" Development "</h6>
-                                            </div>
-                                        </div>
-                                        <!--end review star-->
-
-                                        <p class="text-muted review-para font-italic mt-3 mb-3"> It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
-                                        <div class="reviewer d-flex align-items-center">
-                                            <img src="{{asset('frontend')}}/images/client/06.jpg" class="img-fluid rounded-circle avatar avatar-small me-3" alt="">
-                                            <div class="content">
-                                                <h5 class="name mb-0">Jay Allums</h5>
-                                                <small class="designation text-muted">RedMI</small>
-                                            </div>
-                                        </div>
-                                        <!--end reviewer-->
-                                    </div>
-                                    <!--end client review-->
-                                </div>
-                            </div>
-                        </div>
-                        <!--end col-->
-                    </div>
-                    <!--end row-->
-                </div> <!-- end about detail -->
-            </div> <!-- end col -->
-        </div>
-        <!--end row-->
-    </div>
-    <!--end container fluid-->
-</section>
-<!--end section-->
-<!-- Testimonial End -->
-
 
 <!--hireme-->
 <section class="hire-me">
-    <div class="container-fluid mt-100 mt-60">
+    <div class="container-fluid ">
         <div class="rounded-pill py-5" style="background: url({{asset('frontend/images/hireme.jpg')}}) center center;">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 text-center">
                         <h4 class="text-light title-dark">I Am Available For Web Application Development Projects.</h4>
-                        <p class="text-white-50 mx-auto mt-4 para-desc">Obviously I'm a Web Designer. Experienced with all stages of the development cycle for dynamic web projects.</p>
+                        <p class="text-white-50 mx-auto mt-4 para-desc">Obviously I'm a Full Stack Web Developer. Experienced with all stages of the development cycle for dynamic web projects.</p>
                         <div class="mt-4">
                             <a href="{{route('contact')}}" class="btn btn-primary mouse-down">Hire me</a>
                         </div>
@@ -336,6 +151,7 @@
         </div>
     </div>
 </section>
+
 
 
 

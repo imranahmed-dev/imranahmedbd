@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Blog;
-use App\Models\BlogCategory;
-use Illuminate\Support\Str;
+use App\Models\ClientSay;
 use Validator;
 
-class BlogController extends Controller
+class ClientSayController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $data['blogs'] = Blog::latest()->get();
-        return view('backend.blog.index-blog', $data);
+        $data['clientsays'] = ClientSay::latest()->get();
+        return view('backend.clientsay.index-clientsay', $data);
     }
 
     /**
@@ -29,8 +27,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $data['categories'] = BlogCategory::all();
-        return view('backend.blog.create-blog',$data);
+        return view('backend.clientsay.create-clientsay');
     }
 
     /**
@@ -43,8 +40,8 @@ class BlogController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:blogs,title',
-            'category_id' => 'required',
+            'type' => 'required',
+            'name' => 'required',
             'description' => 'required',
             'image' => 'mimes:jpg,jpeg,png',
         ]);
@@ -56,25 +53,26 @@ class BlogController extends Controller
             return redirect()->back()->withErrors($validator)->withInput()->with($notification);
         }
 
-        $blog = new Blog;
-        $blog->title                   = $request->title;
-        $blog->category_id             = $request->category_id;
-        $blog->slug                    = Str::slug($request->title);
-        $blog->description             = $request->description;
-        $blog->status                  = $request->status;
+        $clientsay = new ClientSay;
+        $clientsay->type                   = $request->type;
+        $clientsay->name                   = $request->name;
+        $clientsay->description            = $request->description;
+        $clientsay->designation            = $request->designation;
 
         // Image
         $image = $request->file('image');
         if ($image) {
+            /*$image_path = public_path($clientsay->image);
+            @unlink($image_path);*/
             $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('uploaded/blog'), $imageName);
-            $blog->image = '/uploaded/blog/' . $imageName;
+            $image->move(public_path('uploaded/clientsay'), $imageName);
+            $clientsay->image = '/uploaded/clientsay/' . $imageName;
         }
 
-        $blog->save();
+        $clientsay->save();
 
         $notification = array(
-            'message' => 'Blog created successfully!',
+            'message' => 'Client say created successfully!',
             'alert-type' => 'success'
         );
 
@@ -89,8 +87,8 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        $data['blog'] = Blog::find($id);
-        return view('backend.blog.show-blog', $data);
+        $data['clientsay'] = ClientSay::find($id);
+        return view('backend.clientsay.show-clientsay', $data);
     }
 
     /**
@@ -101,9 +99,8 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        $data['blog'] = Blog::find($id);
-        $data['categories'] = BlogCategory::all();
-        return view('backend.blog.edit-blog', $data);
+        $data['clientsay'] = ClientSay::find($id);
+        return view('backend.clientsay.edit-clientsay', $data);
     }
 
     /**
@@ -117,8 +114,8 @@ class BlogController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:blogs,title,'.$id,
-            'category_id' => 'required',
+            'type' => 'required',
+            'name' => 'required',
             'description' => 'required',
             'image' => 'mimes:jpg,jpeg,png',
         ]);
@@ -130,27 +127,26 @@ class BlogController extends Controller
             return redirect()->back()->withErrors($validator)->withInput()->with($notification);
         }
 
-        $blog = Blog::find($id);
-        $blog->title                   = $request->title;
-        $blog->category_id             = $request->category_id;
-        $blog->slug                    = Str::slug($request->title);
-        $blog->description             = $request->description;
-        $blog->status                  = $request->status;
+        $clientsay = ClientSay::find($id);
+        $clientsay->type                   = $request->type;
+        $clientsay->name                   = $request->name;
+        $clientsay->description            = $request->description;
+        $clientsay->designation            = $request->designation;
 
         // Image
         $image = $request->file('image');
         if ($image) {
-            $image_path = public_path($blog->image);
+            $image_path = public_path($clientsay->image);
             @unlink($image_path);
             $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('uploaded/blog'), $imageName);
-            $blog->image = '/uploaded/blog/' . $imageName;
+            $image->move(public_path('uploaded/clientsay'), $imageName);
+            $clientsay->image = '/uploaded/clientsay/' . $imageName;
         }
 
-        $blog->save();
+        $clientsay->save();
 
         $notification = array(
-            'message' => 'Blog updated successfully!',
+            'message' => 'Client say updated successfully!',
             'alert-type' => 'success'
         );
 
@@ -165,26 +161,13 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        $blog = Blog::find($id);
-        $image_path = public_path($blog->image);
+        $clientsay = ClientSay::find($id);
+        $image_path = public_path($clientsay->image);
         @unlink($image_path);
-        $blog->delete();
+        $clientsay->delete();
 
         $notification = array(
-            'message' => 'Blog deleted successfully!',
-            'alert-type' => 'success'
-        );
-        return redirect()->back()->with($notification);
-    }
-
-    public function blog_status(Request $request, $id)
-    {
-        $blog = Blog::find($id);
-        $blog->status = $request->status;
-        $blog->save();
-
-        $notification = array(
-            'message' => 'Status changed successfully!',
+            'message' => 'Client say deleted successfully!',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);

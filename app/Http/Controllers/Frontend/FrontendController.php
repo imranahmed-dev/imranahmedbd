@@ -10,6 +10,9 @@ use Validator;
 use App\Models\Portfolio;
 use App\Models\Course;
 use App\Models\CourseRegister;
+use App\Models\ClientSay;
+use App\Models\Blog;
+use App\Models\BlogCategory;
 
 
 class FrontendController extends Controller
@@ -18,6 +21,8 @@ class FrontendController extends Controller
     {
         $data['portfolios'] = Portfolio::where('home', 1)->latest()->get()->take(6);
         $data['courses'] = Course::latest()->get();
+        $data['clientsays'] = ClientSay::latest()->get();
+        $data['blogs'] = Blog::where('status',1)->latest()->get()->take(3);
         return view('frontend.home',$data);
     }
     public function portfolio()
@@ -28,7 +33,10 @@ class FrontendController extends Controller
     }
     public function blogs()
     {
-        return view('frontend.blog');
+        $data['blogs'] = Blog::where('status',1)->latest()->get();
+        $data['recentblogs'] = Blog::where('status',1)->latest()->get()->take(3);
+        $data['categories'] = BlogCategory::all();
+        return view('frontend.blog',$data);
     }
     public function contact()
     {
@@ -44,6 +52,20 @@ class FrontendController extends Controller
         
         $data['course'] = Course::where('slug',$slug)->first();
         return view('frontend.course-details',$data);
+    }
+    
+    public function clientSays(){
+        
+        $data['clientsays'] = ClientSay::latest()->get();
+        return view('frontend.reviews',$data);
+    }
+    
+    public function blogDetails($slug){
+        
+        $data['blog'] = Blog::where('slug',$slug)->first();
+        $data['blogs'] = Blog::where('status',1)->orderByRaw('RAND()')->get()->take(3);
+        
+        return view('frontend.blog-details',$data);
     }
     
     public function courseRegistration($slug){

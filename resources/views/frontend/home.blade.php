@@ -22,6 +22,7 @@
         <!--end row-->
     </div>
     <!--end container-->
+    
     <a href="#about" data-scroll-nav="1" class="mouse-icon mouse-icon-white rounded-pill bg-transparent mouse-down">
         <span class="wheel position-relative d-block mover"></span>
     </a>
@@ -365,8 +366,8 @@
             <!--end col-->
         </div>
         <!--end row-->
-        
-         <div class="row">
+
+        <div class="row">
             <div class="col-lg-12 mt-4 pt-2">
                 <div class="text-center">
                     <a href="{{route('courses')}}" class="btn btn-outline-primary">More Course <i data-feather="refresh-cw" class="fea icon-sm"></i></a>
@@ -796,7 +797,7 @@
                                     <h4 class="title title-line text-uppercase mb-4 pb-4">Clients & Students Says</h4>
                                     <span></span>
                                 </div>
-                                <p class="text-muted mx-auto para-desc mb-0">Obviously I'm a Web Designer. Experienced with all stages of the development cycle for dynamic web projects.</p>
+                                <p class="text-muted mx-auto para-desc mb-0">What my students and clients have said about me</p>
                             </div>
                         </div>
                         <!--end col-->
@@ -806,6 +807,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="client-review-slider">
+                                @foreach($clientsays as $clientsay)
                                 <div class="tiny-slide">
                                     <div class="client-review rounded shadow m-2">
                                         <div class="review-star">
@@ -818,17 +820,17 @@
                                             </ul>-->
 
                                             <div class="review-base">
-                                                <h6 class="title">" Design Quality "</h6>
+                                                <h6 class="title" style="font-size:15px !important;">" {{$clientsay->type}} "</h6>
                                             </div>
                                         </div>
                                         <!--end review star-->
 
-                                        <p class="text-muted review-para font-italic mt-3 mb-3">There are many variations of passages of Lorem Ipsum available, by injected humour, or randomised words which don't look even slightly believable. </p>
+                                        <p class="text-muted review-para font-italic mt-3 mb-3">{{$clientsay->description}}</p>
                                         <div class="reviewer d-flex align-items-center">
-                                            <img src="{{asset('frontend')}}/images/client/01.jpg" class="img-fluid rounded-circle avatar avatar-small me-3" alt="">
+                                            <img src="@if($clientsay->image) {{asset($clientsay->image)}} @else {{asset('defaults/avatar/avatar.png')}} @endif" class="img-fluid rounded-circle avatar avatar-small me-3" alt="image">
                                             <div class="content">
-                                                <h5 class="name mb-0">Erich Bissonette</h5>
-                                                <small class="designation text-muted">Oppo</small>
+                                                <h5 class="name mb-0">{{$clientsay->name}}</h5>
+                                                <small class="designation text-muted">{{$clientsay->designation}}</small>
                                             </div>
                                         </div>
                                         <!--end reviewer-->
@@ -836,128 +838,20 @@
                                     <!--end client review-->
                                 </div>
                                 <!--End Client-->
-
-                                <!--Start Client-->
-                                <div class="tiny-slide">
-                                    <div class="client-review rounded shadow m-2">
-
-                                        <p class="text-muted review-para font-italic mt-3 mb-3">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                                        <div class="reviewer d-flex align-items-center">
-                                            <img src="{{asset('frontend')}}/images/client/02.jpg" class="img-fluid rounded-circle avatar avatar-small me-3" alt="">
-                                            <div class="content">
-                                                <h5 class="name mb-0">Tina Meyer</h5>
-                                                <small class="designation text-muted">Vivo</small>
-                                            </div>
-                                        </div>
-                                        <!--end reviewer-->
-                                    </div>
-                                    <!--end client review-->
-                                </div>
-                                <!--End Client-->
-
-                                <!--Start Client-->
-                                <div class="tiny-slide">
-                                    <div class="client-review rounded shadow m-2">
-                                        <div class="review-star">
-
-                                            <div class="review-base">
-                                                <h6 class="title">" Feature Availability "</h6>
-                                            </div>
-                                        </div>
-                                        <!--end review star-->
-
-                                        <p class="text-muted review-para font-italic mt-3 mb-3">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-                                        <div class="reviewer d-flex align-items-center">
-                                            <img src="{{asset('frontend')}}/images/client/03.jpg" class="img-fluid rounded-circle avatar avatar-small me-3" alt="">
-                                            <div class="content">
-                                                <h5 class="name mb-0">Sharon Murdock</h5>
-                                                <small class="designation text-muted">Apple</small>
-                                            </div>
-                                        </div>
-                                        <!--end reviewer-->
-                                    </div>
-                                    <!--end client review-->
-                                </div>
-                                <!--End Client-->
-
-                                <!--Start Client-->
-                                <div class="tiny-slide">
-                                    <div class="client-review rounded shadow m-2">
-                                        <div class="review-star">
-
-                                            <div class="review-base">
-                                                <h6 class="title">" Customizability "</h6>
-                                            </div>
-                                        </div>
-                                        <!--end review star-->
-
-                                        <p class="text-muted review-para font-italic mt-3 mb-3">All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
-                                        <div class="reviewer d-flex align-items-center">
-                                            <img src="{{asset('frontend')}}/images/client/04.jpg" class="img-fluid rounded-circle avatar avatar-small me-3" alt="">
-                                            <div class="content">
-                                                <h5 class="name mb-0">Jesse Hunt</h5>
-                                                <small class="designation text-muted">Samsung</small>
-                                            </div>
-                                        </div>
-                                        <!--end reviewer-->
-                                    </div>
-                                    <!--end client review-->
-                                </div>
-                                <!--End Client-->
-
-                                <!--Start Client-->
-                                <div class="tiny-slide">
-                                    <div class="client-review rounded shadow m-2">
-                                        <div class="review-star">
-
-                                            <div class="review-base">
-                                                <h6 class="title">" Flexibility "</h6>
-                                            </div>
-                                        </div>
-                                        <!--end review star-->
-
-                                        <p class="text-muted review-para font-italic mt-3 mb-3">There are many variations of passages of Lorem Ipsum available, by injected humour, or randomised words which don't look even slightly believable. </p>
-                                        <div class="reviewer d-flex align-items-center">
-                                            <img src="{{asset('frontend')}}/images/client/05.jpg" class="img-fluid rounded-circle avatar avatar-small me-3" alt="">
-                                            <div class="content">
-                                                <h5 class="name mb-0">Andrea Toy</h5>
-                                                <small class="designation text-muted">Nokia</small>
-                                            </div>
-                                        </div>
-                                        <!--end reviewer-->
-                                    </div>
-                                    <!--end client review-->
-                                </div>
-                                <!--End Client-->
-
-                                <!--Start Client-->
-                                <div class="tiny-slide">
-                                    <div class="client-review rounded shadow m-2">
-                                        <div class="review-star">
-
-                                            <div class="review-base">
-                                                <h6 class="title">" Development "</h6>
-                                            </div>
-                                        </div>
-                                        <!--end review star-->
-
-                                        <p class="text-muted review-para font-italic mt-3 mb-3"> It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
-                                        <div class="reviewer d-flex align-items-center">
-                                            <img src="{{asset('frontend')}}/images/client/06.jpg" class="img-fluid rounded-circle avatar avatar-small me-3" alt="">
-                                            <div class="content">
-                                                <h5 class="name mb-0">Jay Allums</h5>
-                                                <small class="designation text-muted">RedMI</small>
-                                            </div>
-                                        </div>
-                                        <!--end reviewer-->
-                                    </div>
-                                    <!--end client review-->
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <!--end col-->
                     </div>
                     <!--end row-->
+                    <div class="row">
+                        <div class="col-lg-12 mt-4 pt-2">
+                            <div class="text-center">
+                                <a href="{{route('clientsays')}}" class="btn btn-outline-primary">View More <i data-feather="refresh-cw" class="fea icon-sm"></i></a>
+                            </div>
+                        </div>
+                        <!--end col-->
+                    </div>
                 </div> <!-- end about detail -->
             </div> <!-- end col -->
         </div>
@@ -986,38 +880,23 @@
         <!--end row-->
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <div class="blog-post rounded shadow">
-                    <img src="{{asset('frontend')}}/images/blog/01.jpg" class="img-fluid rounded-top" alt="">
-                    <div class="content pt-4 pb-4 p-3">
-                        <ul class="list-unstyled d-flex justify-content-between post-meta">
-                            <li><i data-feather="user" class="fea icon-sm me-1"></i><a href="javascript:void(0)" class="text-dark">Cristino</a></li>
-                            <li><i data-feather="tag" class="fea icon-sm me-1"></i><a href="javascript:void(0)" class="text-dark">Branding</a></li>
-                        </ul>
-                        <h5 class="mb-3"><a href="page-blog-detail.html" class="title text-dark">Our Home Entertainment has Evolved Significantly</a></h5>
-                        <ul class="list-unstyled mb-0 pt-3 border-top d-flex justify-content-between">
-                            <li><a href="javascript:void(0)" class="text-dark">Read More <i data-feather="chevron-right" class="fea icon-sm"></i></a></li>
-                            <li><i class="mdi mdi-calendar-edit me-1"></i>10th April, 2020</li>
-                        </ul>
-                    </div>
-                    <!--end content-->
-                </div>
-                <!--end blog post-->
-            </div>
-            <!--end col-->
+            @foreach($blogs as $blog)
 
             <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                 <div class="blog-post rounded shadow">
-                    <img src="{{asset('frontend')}}/images/blog/02.jpg" class="img-fluid rounded-top" alt="">
+                    <img src="{{asset($blog->image)}}" class="img-fluid rounded-top" alt="image">
                     <div class="content pt-4 pb-4 p-3">
                         <ul class="list-unstyled d-flex justify-content-between post-meta">
-                            <li><i data-feather="user" class="fea icon-sm me-1"></i><a href="javascript:void(0)" class="text-dark">Cristino</a></li>
-                            <li><i data-feather="tag" class="fea icon-sm me-1"></i><a href="javascript:void(0)" class="text-dark">Branding</a></li>
+                            <li><i data-feather="user" class="fea icon-sm me-1"></i><a href="javascript:void(0)" class="text-dark">Imran Ahmed</a></li>
+                            <li><i data-feather="tag" class="fea icon-sm me-1"></i><a href="javascript:void(0)" class="text-dark">{{$blog->category->category_name}}</a></li>
                         </ul>
-                        <h5 class="mb-3"><a href="page-blog-detail.html" class="title text-dark">These Are The Voyages of The Starship Enterprise</a></h5>
+                        <h5 class="mb-3"><a href="{{route('blog.details',$blog->slug)}}" class="title text-dark">{{$blog->title}}</a></h5>
+                        @php
+                        $changedate = Date('d M Y',strtotime($blog->created_at));
+                        @endphp
                         <ul class="list-unstyled mb-0 pt-3 border-top d-flex justify-content-between">
-                            <li><a href="javascript:void(0)" class="text-dark">Read More <i data-feather="chevron-right" class="fea icon-sm"></i></a></li>
-                            <li><i class="mdi mdi-calendar-edit me-1"></i>10th April, 2020</li>
+                            <li><a href="{{route('blog.details',$blog->slug)}}" class="text-dark">Read More <i data-feather="chevron-right" class="fea icon-sm"></i></a></li>
+                            <li><i class="mdi mdi-calendar-edit me-1"></i>{{ Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</li>
                         </ul>
                     </div>
                     <!--end content-->
@@ -1025,26 +904,8 @@
                 <!--end blog post-->
             </div>
             <!--end col-->
+            @endforeach
 
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <div class="blog-post rounded shadow">
-                    <img src="{{asset('frontend')}}/images/blog/03.jpg" class="img-fluid rounded-top" alt="">
-                    <div class="content pt-4 pb-4 p-3">
-                        <ul class="list-unstyled d-flex justify-content-between post-meta">
-                            <li><i data-feather="user" class="fea icon-sm me-1"></i><a href="javascript:void(0)" class="text-dark">Cristino</a></li>
-                            <li><i data-feather="tag" class="fea icon-sm me-1"></i><a href="javascript:void(0)" class="text-dark">Branding</a></li>
-                        </ul>
-                        <h5 class="mb-3"><a href="page-blog-detail.html" class="title text-dark">Three Reasons Visibility Matters in Supply Chain</a></h5>
-                        <ul class="list-unstyled mb-0 pt-3 border-top d-flex justify-content-between">
-                            <li><a href="javascript:void(0)" class="text-dark">Read More <i data-feather="chevron-right" class="fea icon-sm"></i></a></li>
-                            <li><i class="mdi mdi-calendar-edit me-1"></i>10th April, 2020</li>
-                        </ul>
-                    </div>
-                    <!--end content-->
-                </div>
-                <!--end blog post-->
-            </div>
-            <!--end col-->
         </div>
         <!--end row-->
     </div>
@@ -1056,7 +917,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 text-center">
                         <h4 class="text-light title-dark">I Am Available For Web Application Development Projects.</h4>
-                        <p class="text-white-50 mx-auto mt-4 para-desc">Obviously I'm a Web Designer. Experienced with all stages of the development cycle for dynamic web projects.</p>
+                        <p class="text-white-50 mx-auto mt-4 para-desc">Obviously I'm a Full Stack Web Developer. Experienced with all stages of the development cycle for dynamic web projects.</p>
                         <div class="mt-4">
                             <a href="{{route('contact')}}" class="btn btn-primary mouse-down">Hire me</a>
                         </div>
@@ -1154,13 +1015,13 @@
             <div class="col-lg-12">
                 <div class="custom-form mb-sm-30">
                     <form method="post" action="{{route('contact.store')}}">
-                       @csrf
+                        @csrf
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-6">
                                         <div class="form-group">
-                                            <input name="name"  type="text" class="form-control border rounded" placeholder="Full name">
+                                            <input name="name" type="text" class="form-control border rounded" placeholder="Full name">
                                             <div style='color:red; padding: 0 5px;'>{{($errors->has('name'))?($errors->first('name')):''}}</div>
                                         </div>
                                     </div>
@@ -1174,7 +1035,7 @@
                                     <!--end col-->
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <input name="subject"  class="form-control border rounded" placeholder="Your subject">
+                                            <input name="subject" class="form-control border rounded" placeholder="Your subject">
                                             <div style='color:red; padding: 0 5px;'>{{($errors->has('subject'))?($errors->first('subject')):''}}</div>
                                         </div>
                                     </div>

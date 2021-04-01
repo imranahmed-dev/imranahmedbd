@@ -20,7 +20,7 @@ $route = Route::current()->getName();
     <!--end container-->
 </section>
 
-<section class="user-dashboard clearfix py-5">
+<section class="user-dashboard clearfix py-5" style="background: linear-gradient(#f1f1f1a1, #f1f1f1a1), url({{asset('frontend/dashboard/image/back_5.png')}});">
     <div class="container">
         <div class="row">
             <div class="col-md-3">

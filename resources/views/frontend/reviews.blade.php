@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title','Courses')
+@section('title','Reviews')
 @section('content')
 
 <section class="bg-half d-table w-100" style="background: url({{asset('frontend/images/home/bg-pages.jpg')}})center center; background-repeat: no-repeat; ">
@@ -8,11 +8,11 @@
         <div class="row mt-5 justify-content-center">
             <div class="col-lg-12 text-center">
                 <div class="page-next-level">
-                    <h4 class="title"> Courses </h4>
+                    <h4 class="title"> Reviews </h4>
                     <ul class="page-next bg-light d-inline-block py-2 px-4 mt-3 rounded mb-0">
                         <li><a href="{{url('/')}}" class="text-dark">Home</a></li>
                         <li>
-                            <span class="text-primary"> Courses</span>
+                            <span class="text-primary"> Reviews</span>
                         </li>
                     </ul>
                 </div>
@@ -24,57 +24,76 @@
     <!--end container-->
 </section>
 
-<!-- Course Start -->
-<section class="section pb-0" id="services">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 text-center">
-                <div class="section-title">
-                    <div class="titles">
-                        <h4 class="title title-line text-uppercase mb-4 pb-4">Online and Offline Courses</h4>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
-
-        <div class="row">
-            @foreach($courses as $course)
-            <!--start course-->
-            <div class="col-md-4">
-                <div class="entry2 m-2">
-                    <a href="{{route('course.details',$course->slug)}}"><img src="{{asset($course->image)}}" alt="Image" class="img-fluid rounded crs-img"></a>
-                    <div class="excerpt p-3 pt-1">
-                        <div class="post-meta align-items-center text-left clearfix">
-                            <figure class="author-figure mb-0 mr-3 float-left"><img src="{{asset('frontend')}}/images/home/imran.jpg" alt="Image" class="img-fluid"></figure>
-                            <span class="d-inline-block mt-1">By <a href="#">Imran Ahmed</a></span>
-                            <span>&nbsp;-&nbsp; {{$course->category}}</span>
+<!-- Testimonial Start -->
+<section class="cta-full">
+    <div class="container-fluid">
+        <div class="row position-relative">
+            <div class="col-lg-12">
+                <div class="cta-full-img-box">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <div class="section-title">
+                                <div class="titles">
+                                    <h4 class="title title-line text-uppercase mb-4 pb-4">Clients & Students Says</h4>
+                                    <span></span>
+                                </div>
+                            </div>
                         </div>
-                        <h2><a href="{{route('course.details',$course->slug)}}">{{$course->title}}</a></h2>
-                        <p class="text-muted">{!!$course->short_description!!}</p>
+                        <!--end col-->
+                    </div>
+                    <!--end row-->
 
+                    <div class="row">
+                        @foreach($clientsays as $clientsay)
+                        <div class="col-md-6">
+                            <div class="tiny-slide">
+                                <div class="client-review rounded shadow m-2">
+                                    <div class="review-star">
+                                        <!-- <ul class="list-unstyled float-right mb-0">
+                                                <li class="list-inline-item text-primary"><i class="mdi mdi-star"></i></li>
+                                                <li class="list-inline-item text-primary"><i class="mdi mdi-star"></i></li>
+                                                <li class="list-inline-item text-primary"><i class="mdi mdi-star"></i></li>
+                                                <li class="list-inline-item text-primary"><i class="mdi mdi-star"></i></li>
+                                                <li class="list-inline-item text-primary"><i class="mdi mdi-star"></i></li>
+                                            </ul>-->
+
+                                        <div class="review-base">
+                                            <h6 class="title" style="font-size:15px !important;">" {{$clientsay->type}} "</h6>
+                                        </div>
+                                    </div>
+                                    <!--end review star-->
+
+                                    <p class="text-muted review-para font-italic mt-3 mb-3">{{$clientsay->description}}</p>
+                                    <div class="reviewer d-flex align-items-center">
+                                        <img src="@if($clientsay->image) {{asset($clientsay->image)}} @else {{asset('defaults/avatar/avatar.png')}} @endif" class="img-fluid rounded-circle avatar avatar-small me-3" alt="image">
+                                        <div class="content">
+                                            <h5 class="name mb-0">{{$clientsay->name}}</h5>
+                                            <small class="designation text-muted">{{$clientsay->designation}}</small>
+                                        </div>
+                                    </div>
+                                    <!--end reviewer-->
+                                </div>
+                                <!--end client review-->
+                            </div>
+                            <!--End Client-->
+                        </div>
+                        @endforeach
                     </div>
-                    <div class="course-money clearfix">
-                        <span class="course-fee"> Course fee</span>
-                        <span class="course-main-mone">BDT - {{$course->fee}}</span>
-                    </div>
-                </div>
-            </div>
-            <!--end course-->
-            @endforeach
+                </div> <!-- end about detail -->
+            </div> <!-- end col -->
         </div>
         <!--end row-->
-
     </div>
-    <!--end container-->
+    <!--end container fluid-->
 </section>
-<!-- Course End -->
+<!--end section-->
+<!-- Testimonial End -->
+
+
 
 <!--hireme-->
 <section class="hire-me">
-    <div class="container-fluid mt-100 mt-60">
+    <div class="container-fluid ">
         <div class="rounded-pill py-5" style="background: url({{asset('frontend/images/hireme.jpg')}}) center center;">
             <div class="container">
                 <div class="row justify-content-center">
@@ -149,6 +168,8 @@
         </div>
     </div>
 </section>
+
+
 
 
 

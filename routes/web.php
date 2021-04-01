@@ -18,7 +18,9 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/about', 'FrontendController@about')->name('about');
     Route::get('/portfolio', 'FrontendController@portfolio')->name('portfolio');
     Route::get('/courses', 'FrontendController@courses')->name('courses');
+    Route::get('/review', 'FrontendController@clientSays')->name('clientsays');
     Route::get('/course/details/{slug}', 'FrontendController@courseDetails')->name('course.details');
+    Route::get('/blog/details/{slug}', 'FrontendController@blogDetails')->name('blog.details');
     Route::get('/course/registration/{slug}', 'FrontendController@courseRegistration')->name('course.registration');
     Route::get('/blogs', 'FrontendController@blogs')->name('blogs');
     Route::get('/contact', 'FrontendController@contact')->name('contact');
@@ -130,6 +132,17 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
         Route::get('/edit/{id}', 'PortfolioController@edit')->name('edit');
         Route::post('/update/{id}', 'PortfolioController@update')->name('update');
         Route::get('/destroy/{id}', 'PortfolioController@destroy')->name('destroy');
+    });
+    
+    //ClientSay
+    Route::group(['as' => 'clientsay.', 'prefix' => '/clientsay', 'namespace' => 'Backend'], function () {
+        Route::get('/index', 'ClientSayController@index')->name('index');
+        Route::get('/create', 'ClientSayController@create')->name('create');
+        Route::post('/store', 'ClientSayController@store')->name('store');
+        Route::get('/show/{id}', 'ClientSayController@show')->name('show');
+        Route::get('/edit/{id}', 'ClientSayController@edit')->name('edit');
+        Route::post('/update/{id}', 'ClientSayController@update')->name('update');
+        Route::get('/destroy/{id}', 'ClientSayController@destroy')->name('destroy');
     });
 
 });

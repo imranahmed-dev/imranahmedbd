@@ -15,7 +15,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $data = User::latest()->get();
+        $data = User::where('role',1)->latest()->get();
         return view('backend.admin.index-admin', compact('data'));
     }
 

@@ -37,6 +37,16 @@
                     <span>Dashboard</span>
                 </a>
             </li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="fa fa-user"></i>
+                    <span>Admin</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{{route('admin.index')}}"><i class="fa fa-list"></i> Admin List</a></li>
+                </ul>
+            </li>
             
             <li class="has-sub">
                 <a href="javascript:;">
@@ -59,6 +69,18 @@
                 <ul class="sub-menu">
                     <li><a href="{{route('portfolio.create')}}"><i class="fa fa-plus-circle"></i> Add Portfolio</a></li>
                     <li><a href="{{route('portfolio.index')}}"><i class="fa fa-list"></i> Portfolio List</a></li>
+                </ul>
+            </li>
+            
+             <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="fa fa-newspaper-o"></i>
+                    <span>Client Say</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{{route('clientsay.create')}}"><i class="fa fa-plus-circle"></i> Add Client Say</a></li>
+                    <li><a href="{{route('clientsay.index')}}"><i class="fa fa-list"></i> Client Say List</a></li>
                 </ul>
             </li>
 
