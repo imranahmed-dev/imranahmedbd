@@ -28,7 +28,7 @@
                                         @csrf
                                         <input id="noImage" type="file" name="image" class="form-control">
                                         <div style='color:red; padding: 0 5px;'>{{($errors->has('image'))?($errors->first('image')):''}}</div>
-                                        <img style="padding:4px;border:1px solid #ddd; border-radius: 3px; margin: 10px 0; width:100px; height: 100px;" id="showNoImage" src="@if(Auth::user()->image) {{asset(Auth::user()->image)}} @else {{asset('defaults/noimage/choose.png')}} @endif" alt="image">
+                                        <img style="padding:4px;border:1px solid #ddd; border-radius: 3px; margin: 10px 0; width:100px; height: 100px;" id="showNoImage" src="@if(Auth::user()->image) {{asset(Auth::user()->image)}} @else {{asset('defaults/avatar/avatar.png')}} @endif" alt="image">
                                         <input type="submit" value="Save Changes" class="btn btn-primary btn-sm">
                                     </form>
 

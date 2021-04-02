@@ -156,5 +156,13 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
         Route::get('/destroy/{id}', 'CourseRegController@destroy')->name('destroy');
         Route::post('/status/{id}', 'CourseRegController@status')->name('status');
     });
+    
+    //Users
+    Route::group(['as' => 'users.', 'prefix' => '/users', 'namespace' => 'Backend'], function () {
+        Route::get('/index', 'UsersController@index')->name('index');
+        Route::get('/destroy/{id}', 'UsersController@destroy')->name('destroy');
+    });
+    //User status
+    Route::get('/asdf', 'UserController@userOnlineStatus');
 
 });
