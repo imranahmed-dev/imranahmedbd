@@ -56,7 +56,7 @@
                     <div class="about-desc">
 
                         <p class="mb-1"><i class="fa fa-tasks"></i> Professional Full Stack Web Application/Software Developer</p>
-                        <p class="mb-1"><i class="fa fa-graduation-cap"></i> Studied Diploma in Computer Science &amp; Engineering at Barguna Government Polytechnic Institute-BGPI</p>
+                        <p class="mb-1"><i class="fa fa-graduation-cap"></i> Studied Diploma in Computer Engineering at Barguna Government Polytechnic Institute-BGPI</p>
                         <p><i class="fa fa-map-marker"></i> From Thakurgaon, Bangladesh</p>
 
 
