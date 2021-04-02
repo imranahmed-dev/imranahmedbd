@@ -52,6 +52,21 @@
                 <a href="javascript:;">
                     <b class="caret"></b>
                     <i class="fa fa-newspaper-o"></i>
+                    <span>Courses Registration</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{{route('coursereg.pending')}}"><i class="fa fa-list"></i> New Registration</a></li>
+                    <li><a href="{{route('coursereg.accept')}}"><i class="fa fa-list"></i> Accept Registration</a></li>
+                    <li><a href="{{route('coursereg.running')}}"><i class="fa fa-list"></i> Running Course</a></li>
+                    <li><a href="{{route('coursereg.complete')}}"><i class="fa fa-list"></i> Complete Course</a></li>
+                    <li><a href="{{route('coursereg.cancel')}}"><i class="fa fa-list"></i> Cancel Registration</a></li>
+                </ul>
+            </li>
+            
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="fa fa-newspaper-o"></i>
                     <span>Courses</span>
                 </a>
                 <ul class="sub-menu">

@@ -23,6 +23,7 @@ class CreateCourseRegistersTable extends Migration
             $table->string('school_college')->nullable();
             $table->string('semester_year')->nullable();
             $table->text('address')->nullable();
+            $table->integer('canceled_by')->nullable();
             $table->integer('status')->default(0)->nullable();
             $table->timestamps();
         });

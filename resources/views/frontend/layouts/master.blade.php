@@ -6,10 +6,10 @@ $url = Request::path();
 
 <head>
     <meta charset="utf-8" />
-    <title>@yield('title') - Full Stack Web Developer In Bangladesh</title>
+    <title>@yield('title') - @if($url != '/') Imran Ahmed @endif Software Engineer In Bangladesh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Imran Ahmed">
-    <meta name="description" content="  Imran Ahmed Full Stack Web Developer In Bangladesh, Obviously I'm a Full Stack Web Developer. Experienced with all stages of the development cycle for dynamic web projects. I have 3year+ experience in web design and development, I Am Available For Web Application Development Projects. any body can hire me for web design and development projects">
+    <meta name="description" content="  Imran Ahmed Software Engineer, Full Stack Web Developer In Bangladesh, Obviously I'm a Full Stack Web Developer. Experienced with all stages of the development cycle for dynamic web projects. I have 3year+ experience in web design and development, I Am Available For Web Application Development Projects. any body can hire me for web design and development projects">
     
     <meta name="keywords" content="imran ahmed, 01755430927, imranahmedbd, imranemon, developer imran, freelancer imran, developer imran ahmed, freelancer imran ahmed, imran, software engineer imran ahmed, web developer imran ahmed, software engineer in bangladesh, web developer in bangladesh, top 10 software engineer in bangaldesh,top 10 web developer in bangladesh,
     who is imran ahmed, imran ahmed address, imran ahmed contact, how to contact with imran ahmed, web designer imran ahmed, web designer in bangladesh, web developer in thakurgaon, web developer in baliadangi, web developer in rangpur, web developer in dinajpur, web developer in dhaka">

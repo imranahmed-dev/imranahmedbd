@@ -71,8 +71,8 @@ $(document).on('click', '#restore', function(e) {
 
 ////////////////////////For ecommerce
 
-//sweetalert payment accept
-$(document).on('click', '#order_status', function(e) {
+//sweetalert payment status
+$(document).on('click', '#course_status', function(e) {
     e.preventDefault();
     var link = $(this).attr("href");
     Swal.fire({

@@ -5,50 +5,56 @@
 <div class="col-md-9">
     <div class="ud-content">
         <h5 class="ud-content-title">My Course</h5>
-        <table class="table borderless text-nowrap">
-            <thead>
-                <tr>
-                    <th>SL</th>
-                    <th>Course Name</th>
-                    <th>Duration</th>
-                    <th>Course Fee</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if($courses->count() == null)
-                <tr>
-                    <td class="my-4 text-center" colspan="6">No Course Available!</td>
-                </tr>
-                @endif
-                @foreach($courses as $course)
-                <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td>{{$course->course->title}}</td>
-                    <td>{{$course->course->duration}}</td>
-                    <td>{{$course->course->fee}}</td>
-                    <td><span class="custom-badge">
+        <div class="table-responsive">
+            <table class="table borderless text-nowrap">
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Course Name</th>
+                        <th>Duration</th>
+                        <th>Course Fee</th>
+                        <th>Registration Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if($courses->count() == null)
+                    <tr>
+                        <td class="my-4 text-center" colspan="6">No Course Available!</td>
+                    </tr>
+                    @endif
+                    @foreach($courses as $course)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$course->course->title}}</td>
+                        <td>{{$course->course->duration}}</td>
+                        <td>{{$course->course->fee}}</td>
+                        <td>{{ \Carbon\Carbon::parse($course->created_at)->format('d M Y')}}</td>
+                        <td><span class="custom-badge">
+                                @if($course->status == 0)
+                                Pending
+                                @elseif($course->status == 1)
+                                Accept
+                                @elseif($course->status == 2)
+                                Running
+                                @elseif($course->status == 3)
+                                Complete
+                                @elseif($course->status == 4)
+                                Cancel
+                                @endif
+                            </span></td>
+                        <td>
+                            <a href="{{route('course.details',$course->course->slug)}}" class="btn btn-primary btn-sm">View</a>
                             @if($course->status == 0)
-                            Pending
-                            @elseif($course->status == 1)
-                            Accept
-                            @elseif($course->status == 2)
-                            Running
-                            @elseif($course->status == 3)
-                            Complete
+                            <a id="delete" href="{{route('user.course.delete',$course->id)}}" class="btn btn-danger btn-sm">Delete</a>
                             @endif
-                        </span></td>
-                    <td>
-                        <a href="{{route('course.details',$course->course->slug)}}" class="btn btn-primary btn-sm">View</a>
-                        @if($course->status == 0)
-                        <a id="delete" href="{{route('user.course.delete',$course->id)}}" class="btn btn-danger btn-sm">Delete</a>
-                        @endif
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
         <div class="row">
             <div class="col">
                 <div class="d-flex justify-content-center my-3">

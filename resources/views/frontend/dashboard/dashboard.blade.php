@@ -69,6 +69,7 @@
                                 <th>Course Name</th>
                                 <th>Duration</th>
                                 <th>Course Fee</th>
+                                <th>Registration Date</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -85,6 +86,7 @@
                                 <td>{{$course->course->title}}</td>
                                 <td>{{$course->course->duration}}</td>
                                 <td>{{$course->course->fee}}</td>
+                                <td>{{ \Carbon\Carbon::parse($course->created_at)->format('d M Y')}}</td>
                                 <td><span class="custom-badge">
                                 @if($course->status == 0)
                                 Pending
@@ -94,12 +96,14 @@
                                 Running
                                 @elseif($course->status == 3)
                                 Complete
+                                @elseif($course->status == 4)
+                                Cancel
                                 @endif
                                 </span></td>
                                 <td>
                         <a href="{{route('course.details',$course->course->slug)}}" class="btn btn-primary btn-sm">View</a>
                         @if($course->status == 0)
-                        <a id="delete" href="{{route('user.course.delete',$course->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                        <a id="course_status" href="{{route('user.course.cancel',$course->id)}}" class="btn btn-danger btn-sm">Cancel</a>
                         @endif
                     </td>
                             </tr>

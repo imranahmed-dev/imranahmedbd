@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- HOME START-->
-<section class="bg-home d-flex align-items-center" style="background-image:url({{asset('frontend/images/home/02.jpg')}})" id="home">
+<section class="bg-home d-flex align-items-center" style="background-image:url({{asset($setting->banner)}})" id="home">
     <div class="bg-overlay"></div>
     <div class="container">
         <div class="row justify-content-center">
@@ -60,8 +60,8 @@
                         <p><i class="fa fa-map-marker"></i> From Thakurgaon, Bangladesh</p>
 
 
-                        <p class="text-muted">Hi! I'm a Web Application Developer. Web Application Developer with over 3 years of experience. Experienced with all stages of the development cycle for dynamic web projects.</p>
-                        <p class="text-muted">I have strong skills in HTML5, CSS3, Javascript, Jquery, Jquery Plugins Integration, Bootstrap, Nuxt Js, Vue Js, SCSS, Flexbox, Json, Webpack, Laravel, Php, MySQL, Rest API, API integration, Database design, Payment gateway integration.</p>
+                        <p class="text-muted">Hi! I'm a Full Stack Web Developer. Web Developer with over 3years+ of experience. Experienced with all stages of the development cycle for dynamic web projects.</p>
+                        <p class="text-muted">I have strong skills in HTML5, CSS3, Javascript, Jquery, Jquery Plugins Integration, Bootstrap, Nuxt Js, Vue Js, SCSS, Flexbox, Json, Webpack, Laravel, Php, MySQL, Rest API, API integration, Database design, Payment gateway integration, Wordpress, Seo etc</p>
                     </div>
 
                     <div class="mt-4">

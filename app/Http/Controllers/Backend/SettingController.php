@@ -50,7 +50,7 @@ class SettingController extends Controller
         $setting->terms_condition                    =  $request->terms_condition;
         $setting->privacy_policy                     =  $request->privacy_policy;
 
-        // Image
+        // Logo
         $image = $request->file('logo');
         if ($image) {
             $image_path = public_path($setting->logo);
@@ -58,6 +58,15 @@ class SettingController extends Controller
             $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('uploaded/logo'), $imageName);
             $setting->logo = '/uploaded/logo/' . $imageName;
+        }
+         // Logo
+        $banner = $request->file('banner');
+        if ($banner) {
+            $image_path = public_path($setting->banner);
+            @unlink($image_path);
+            $imageName = time() . '_' . uniqid() . '.' . $banner->getClientOriginalExtension();
+            $banner->move(public_path('uploaded/logo'), $imageName);
+            $setting->banner = '/uploaded/logo/' . $imageName;
         }
 
         $setting->save();

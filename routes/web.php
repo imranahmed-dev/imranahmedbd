@@ -43,7 +43,7 @@ Route::group(['prefix' => '/user', 'namespace' => 'Frontend', 'middleware' => ['
     
     Route::get('/my/course', 'DashboardController@myCourse')->name('user.mycourse');
     Route::get('/complete/course', 'DashboardController@completeCourse')->name('user.complete.course');
-    Route::get('/course/delete/{id}', 'DashboardController@courseDelete')->name('user.course.delete');
+    Route::get('/course/cancel/{id}', 'DashboardController@courseCancel')->name('user.course.cancel');
 });
 
 
@@ -143,6 +143,18 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
         Route::get('/edit/{id}', 'ClientSayController@edit')->name('edit');
         Route::post('/update/{id}', 'ClientSayController@update')->name('update');
         Route::get('/destroy/{id}', 'ClientSayController@destroy')->name('destroy');
+    });
+    
+    //Course Registration
+    Route::group(['as' => 'coursereg.', 'prefix' => '/course/registration', 'namespace' => 'Backend'], function () {
+        Route::get('/pending', 'CourseRegController@pending')->name('pending');
+        Route::get('/accept', 'CourseRegController@accept')->name('accept');
+        Route::get('/running', 'CourseRegController@running')->name('running');
+        Route::get('/complete', 'CourseRegController@complete')->name('complete');
+        Route::get('/cancel', 'CourseRegController@cancel')->name('cancel');
+        Route::get('/show/{id}', 'CourseRegController@show')->name('show');
+        Route::get('/destroy/{id}', 'CourseRegController@destroy')->name('destroy');
+        Route::post('/status/{id}', 'CourseRegController@status')->name('status');
     });
 
 });

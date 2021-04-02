@@ -92,8 +92,8 @@
 
 
 <!--hireme-->
-<section class="hire-me">
-    <div class="container-fluid ">
+<section class="hire-me mb-5 pb-5 mt-3">
+    <div class="container-fluid">
         <div class="rounded-pill py-5" style="background: url({{asset('frontend/images/hireme.jpg')}}) center center;">
             <div class="container">
                 <div class="row justify-content-center">
@@ -113,62 +113,7 @@
         <!--end div-->
     </div>
     <!--end container fluid-->
-
-    <div class="container">
-        <div class="row py-5">
-            <div class="col-md-4 mt-4 pt-2">
-                <div class="contact-detail text-center">
-                    <div class="icon">
-                        <i data-feather="phone" class="fea icon-md"></i>
-                    </div>
-                    <div class="content mt-4">
-                        <h5 class="title text-uppercase">Phone</h5>
-                        <p class="text-muted">If you want to contact me by phone, you can call this numbers</p>
-                        <a href="tel:+152534-468-854" class="text-primary"><i class="mdi mdi-phone"></i> {{$setting->mobile_one}}</a>
-                        @if($setting->mobile_two)
-                        <br>
-                        <a href="tel:+152534-468-854" class="text-primary"> <i class="mdi mdi-phone"></i> {{$setting->mobile_two}}</a>
-                        @endif
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-
-            <div class="col-md-4 mt-4 pt-2">
-                <div class="contact-detail text-center">
-                    <div class="icon">
-                        <i data-feather="mail" class="fea icon-md"></i>
-                    </div>
-                    <div class="content mt-4">
-                        <h5 class="title text-uppercase">Email</h5>
-                        <p class="text-muted">If you would like to contact me via email, you can send a message to this email address</p>
-                        <a href="mailto:{{$setting->email_one}}" class="text-primary"><i class="mdi mdi-email"></i> {{$setting->email_one}}</a>
-                        @if($setting->email_two)
-                        <br>
-                        <a href="mailto:{{$setting->email_two}}" class="text-primary"> <i class="mdi mdi-email"></i> {{$setting->email_two}}</a>
-                        @endif
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-
-            <div class="col-md-4 mt-4 pt-2">
-                <div class="contact-detail text-center">
-                    <div class="icon">
-                        <i data-feather="map-pin" class="fea icon-md"></i>
-                    </div>
-                    <div class="content mt-4">
-                        <h5 class="title text-uppercase">Location</h5>
-                        <p class="text-muted"> {{$setting->address}}</p>
-                        <a href="{{$setting->map_link}}" class="video-play-icon text-primary" target="_blank"> <i class="mdi mdi-map-marker"></i> View on Google map</a>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-    </div>
 </section>
-
 
 
 

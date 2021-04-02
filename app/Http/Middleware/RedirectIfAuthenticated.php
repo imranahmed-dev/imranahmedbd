@@ -24,7 +24,11 @@ class RedirectIfAuthenticated
             
         }elseif(Auth::guard($guard)->check() && Auth::user()->role == 2){
             
+            if(Session::has('requrl')){
+                return redirect(Session::get('requrl'));
+            }else{
             return redirect()->route('user.dashboard');
+            }
             
         }else{
             

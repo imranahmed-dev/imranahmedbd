@@ -74,7 +74,7 @@ class FrontendController extends Controller
             
             $course_id = Course::where('slug',$slug)->first()->id;
             
-            $check = CourseRegister::where('user_id', Auth::user()->id)->where('course_id',$course_id)->first();
+            $check = CourseRegister::where('user_id', Auth::user()->id)->whereIn('status', [0, 1, 2, 3])->where('course_id',$course_id)->first();
             
             if($check){
                 $notification = array(

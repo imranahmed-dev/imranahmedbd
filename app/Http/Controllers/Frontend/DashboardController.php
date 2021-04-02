@@ -140,10 +140,13 @@ class DashboardController extends Controller
         return view('frontend.dashboard.course.course-view',$data);
     }
     
-    public function courseDelete($id){
-        CourseRegister::find($id)->delete();
+    public function courseCancel($id){
+        $course = CourseRegister::find($id);
+        $course->status = 4;
+        $course->canceled_by = Auth::user()->role;
+        $course->save();
             $notification = array(
-                'message' => 'Successfully Course Deleted!.',
+                'message' => 'Successfully Course canceled!.',
                 'alert-type' => 'success'
             );
             return redirect()->back()->with($notification);

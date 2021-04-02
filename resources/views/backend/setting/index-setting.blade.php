@@ -164,6 +164,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="">Banner</label>
+                                            <input id="noImage" type="file" name="banner" class="form-control">
+                                            <img style="padding:4px;border:1px solid gray; margin: 10px 0; width:100px;" id="showNoImage" src="@if(!empty($setting->banner)) {{asset($setting->banner)}} @else {{asset('defaults/noimage/no_img.jpg')}} @endif" alt="logo">
+                                            <div style='color:red; padding: 0 5px;'>{{($errors->has('banner'))?($errors->first('banner')):''}}</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row mt-4">
                                     <div class="col-12">
                                         <div class="form-group">
