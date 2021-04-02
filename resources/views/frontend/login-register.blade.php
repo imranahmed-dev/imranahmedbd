@@ -3,7 +3,7 @@
 @section('content')
 
 
-<section class="bg-half d-table w-100" style="background: url({{asset('frontend/images/home/bg-pages.jpg')}})center center; background-repeat: no-repeat; ">
+<section class="bg-half d-table w-100" style="background: url({{asset($setting->section_banner)}})center center; background-repeat: no-repeat; ">
     <div class="bg-overlay bg-overlay-white"></div>
     <div class="container">
         <div class="row mt-5 justify-content-center">
@@ -37,14 +37,14 @@
                             @csrf
                             <div class="form-group">
                                 <label for="signin-email">Email address</label>
-                                <input id="signin-email" name="email" type="email" class="form-control" placeholder="customer@example.com">
+                                <input id="signin-email" name="email" type="email" class="form-control" placeholder="Email address">
                                 <div style='color:red; padding: 0 5px;'>{{($errors->has('email'))?($errors->first('email')):''}}</div>
                             </div>
                             <div class="form-group">
                                 <label for="signin-password">Password</label>
-                                <input id="signin-password" name="password" type="password" class="form-control" placeholder="Secret word">
+                                <input id="signin-password" name="password" type="password" class="form-control" placeholder="Password">
                                 <div style='color:red; padding: 0 5px;'>{{($errors->has('password'))?($errors->first('password')):''}}</div>
-                                <small class="form-text text-muted mt-3"><a href="#">Forgot password?</a></small>
+                                <small class="form-text text-muted mt-3"><a href="{{ route('password.request') }}">Forgot password?</a></small>
                             </div>
                             <div class="form-group">
                                 <input class="input-check__input" type="checkbox" id="signin-remember">

@@ -82,14 +82,18 @@
 .tns-nav button.tns-nav-active {
     background-color: #f05925 !important;
 }
+.bg-overlay-white {
+    opacity: inherit;
+}
 
 .bg-overlay {
-    background-color: #00010ed1;
+    background: #00010ed1;
 }
 
 .service-wrapper {
     background: #fff;
 }
+
 .blog-post img{
     height: 245px;
     width: 100%;
@@ -123,11 +127,11 @@
 }
 
 .navbar-custom .navbar-brand .l-light {
-    width: 160px;
+    width: 150px;
 }
 
 .nav-sticky.navbar-custom .navbar-brand .l-dark {
-    width: 160px;
+    width: 150px;
 }
 
 .navbar-custom {

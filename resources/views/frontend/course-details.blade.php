@@ -2,7 +2,7 @@
 @section('title',''.$course->title.'')
 @section('content')
 
-<section class="bg-half d-table w-100" style="background: url({{asset('frontend/images/home/bg-pages.jpg')}})center center; background-repeat: no-repeat; ">
+<section class="bg-half d-table w-100" style="background: url({{asset($setting->section_banner)}})center center; background-repeat: no-repeat; ">
     <div class="bg-overlay bg-overlay-white"></div>
     <div class="container">
         <div class="row mt-5 justify-content-center">
